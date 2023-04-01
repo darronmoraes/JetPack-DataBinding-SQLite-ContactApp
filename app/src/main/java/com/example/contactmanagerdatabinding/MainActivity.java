@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,14 +66,9 @@ public class MainActivity extends AppCompatActivity {
         // Add Data
         LoadData();
 
-        // Handling swiping #ItemTouchHelper.SimpleCallback()
+        // Handling swiping #(ItemTouchHelper.SimpleCallback() {})
         // dragDirs = 0, ItemTouchHelper = left
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-            @Override
-            public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
-                return 0;
-            }
-
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -83,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 Contact contact = contacts.get(viewHolder.getAdapterPosition());
                 deleteContact(contact);
             }
-        }).attachToRecyclerView(recyclerView);   // Attach the ItemTouchHelper to recyclerView
+        }).attachToRecyclerView(recyclerView);  // Attach the ItemTouchHelper to recyclerView
 
         // FAB already created in MainActivityCLickHandler class so no need to do it here
 
