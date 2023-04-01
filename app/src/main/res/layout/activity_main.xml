@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/id_constraint_layout_main"
         tools:context=".MainActivity">
 
         <!-- Floating Action Button to add Contact -->
